@@ -68,9 +68,6 @@ void Menu_Resultado(char Nombre1[], char Nombre2[], int t15, int Puntaje[], int 
     system("cls");
 }
 
-
-
-
 ///# 02
 void Menu_Inicio(char nombre1[], char nombre2[], int Puntaje[], int t2, int Rondas, int j, int Jugador1[], int Jugador2[], int t0){ ///Inicia el Juego
     cout<<"Menu_Inicio "<<endl<<endl;
@@ -109,7 +106,7 @@ void Menu_tirar(char Nombre[], int tiro[], int t, int Jugador[], bool Jugado[], 
     system("cls");
     while(opcion!=4){
         vuelta++;
-    cout<<"Mrnu_Tirar  ";
+    cout<<"Menu_Tirar  ";
     cout<<"\n\n\nJugador "<<Nombre<<endl;
     cout<<"                DADOS    1°       2°       3°       4°       5°      ";
     cout<<"\n";
@@ -178,7 +175,7 @@ void Menu_tirar(char Nombre[], int tiro[], int t, int Jugador[], bool Jugado[], 
         if(Tiros!=0){
             opcion=4;
         }else{
-        cout<<"No puede salir del turno antes de tirar los dados";
+        cout<<"\t\tNo puede salir del turno antes de tirar los dados \n";
         vuelta=0;
         system("PAUSE");
         system("cls");}
@@ -301,7 +298,6 @@ void Menu_combinaciones(char Nombre[], int tiro[], int t, int Jugador[], bool Ju
 }
 
 ///SOLITARIO
-
 void Menu_Inicio_sol(char nombre1[], int Puntaje[], int t2, int Rondas, int j, int Jugador1[], int t0){ ///Inicia el Juego
     cout<<"Menu_Inicio "<<endl<<endl;
     cout<<"\n\t\t-----------------------------------------------\n";
@@ -324,17 +320,19 @@ void Menu_Resultado_sol(char Nombre1[], int t15, int Puntaje[], int t2, int Gene
 	cout<<" \t\t    HAZ LOGRADO LA CANTIDAD DE "<<Puntaje[0]<<" PUNTOS."<<endl;
     cout<<endl<<endl;
 
-
-                cout<<"\t\t..............RESULTADO..............\n";
-                cout<<"\t\t:::::::::::::::::::::::::::::::::::::\n";
-
         if(Gene[0]==1){
+                    cout<<"\t\t..............RESULTADO..............\n";
+                    cout<<"\t\t:::::::::::::::::::::::::::::::::::::\n";
                     cout<<"\t\t::::::::::::"<<Nombre1<<":::::::::::::\n";
-                    cout<<"\t\t:::::::::POR GENERALA SERVIDA:::::::::\n";
+                    cout<<"\t\t:::::::::JUEGO COMPLETADO POR:::::::::\n";
+                    cout<<"\t\t:::::::::::GENERALA SERVIDA:::::::::::\n";
         }else{
         if(Gene[1]==1){
+                    cout<<"\t\t..............RESULTADO..............\n";
+                    cout<<"\t\t:::::::::::::::::::::::::::::::::::::\n";
                     cout<<"\t\t::::::::::::"<<Nombre1<<":::::::::::::\n";
-                    cout<<"\t\t::::::::::POR GENERALA DOBLE::::::::::\n";
+                    cout<<"\t\t:::::::::JUEGO COMPLETADO POR:::::::::\n";
+                    cout<<"\t\t::::::::::::GENERALA DOBLE::::::::::::\n";
         } }
                     cout<<"\t\t::::::::::::::::::::::::::::::::::::::\n";
                     cout<<"\n\t\t F  E  L  I  C  I  D  A  D  E  S\n\n\t\t";
