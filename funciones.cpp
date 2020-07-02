@@ -58,12 +58,15 @@ void Menu_Resultado(char Nombre1[], char Nombre2[], int t15, int Puntaje[], int 
                     }
         } } } } }
             if(Puntaje[0]>Puntaje[1]){
-                cout<<"\t\t::::::::::::"<<Nombre1<<"::::::::::::\n";
+                    cout<<"\t\t::::::::::::"<<Nombre1<<"::::::::::::\n";
                 }else{
-                cout<<"\t\t::::::::::::"<<Nombre2<<"::::::::::::\n";
-                }
-        cout<<"\t\t::::::::::::::::::::::::::::::::::::::\n";
-        cout<<"\n\t\t F  E  L  I  C  I  D  A  D  E  S\n\n\t\t";
+                if(Puntaje[0]<Puntaje[1]){
+                    cout<<"\t\t::::::::::::"<<Nombre2<<"::::::::::::\n";
+                }else{
+                    cout<<"\t\t::::::::::::"<<"Empate"<<"::::::::::::\n";}}
+
+                    cout<<"\t\t::::::::::::::::::::::::::::::::::::::\n";
+                    cout<<"\n\t\t F  E  L  I  C  I  D  A  D  E  S\n\n\t\t";
     system("pause");
     system("cls");
 }
@@ -99,7 +102,7 @@ void Tirar_dados(int tiros[], int otro){///ojo que debe asignar valores aleatori
 void Menu_tirar(char Nombre[], int tiro[], int t, int Jugador[], bool Jugado[], int t0){
     int opcion=0, vuelta=0, dado, cant, I, Tiros=0, suma1=0, Gen=0, Num;
     bool azar;
-    Cargar_vector(tiro, t);
+    Cargar_vector(tiro, t); ///PONE EN CERO EL VECTOR QUE MUESTRA LOS DADOS
     cout<<"Indique de que manera desea ejecutar el programa \n";
     cout<<"Ingrese 0 para sin azar, 1 con azar: "; cin>>azar;
 
@@ -144,7 +147,7 @@ void Menu_tirar(char Nombre[], int tiro[], int t, int Jugador[], bool Jugado[], 
         }
         Tiros++;///      Comprobacion generala en un tiro "tiro=1 y tiro[10]=50
         if((tiro[0]==tiro[1]) && (tiro[1]==tiro[2]) &&(tiro[2]==tiro[3]) &&(tiro[3]==tiro[4])&& (Tiros==1)&& (Jugado[10]==0)){
-            cout<<"FELICITACIONES = GENERALA SERVIDA, SE HABILITA LA OPCION 1\n";
+            cout<<"\nFELICITACIONES = GENERALA SERVIDA, SE HABILITA LA OPCION 1\n";
             Gen++;
             Jugador[10]=50;
             vuelta=0;
@@ -152,7 +155,7 @@ void Menu_tirar(char Nombre[], int tiro[], int t, int Jugador[], bool Jugado[], 
             }
             ///      Comprobacion generala doble en dos Tiros "tiro=1 y tiro[9]=50
         if((tiro[0]==tiro[1]) && (tiro[1]==tiro[2]) &&(tiro[2]==tiro[3]) &&(tiro[3]==tiro[4])&& (Tiros==2) && (Jugado[11]==0)){
-            cout<<"FELICITACIONES = GENERALA DOBLE ";
+            cout<<"\n FELICITACIONES = GENERALA DOBLE ";
             Gen++;
             Jugador[11]=100;
             system("PAUSE");
@@ -321,15 +324,15 @@ void Menu_Resultado_sol(char Nombre1[], int t15, int Puntaje[], int t2, int Gene
     cout<<endl<<endl;
 
         if(Gene[0]==1){
-                    cout<<"\t\t..............RESULTADO..............\n";
-                    cout<<"\t\t:::::::::::::::::::::::::::::::::::::\n";
+                    cout<<"\t\t..............RESULTADO...............\n";
+                    cout<<"\t\t::::::::::::::::::::::::::::::::::::::\n";
                     cout<<"\t\t::::::::::::"<<Nombre1<<":::::::::::::\n";
                     cout<<"\t\t:::::::::JUEGO COMPLETADO POR:::::::::\n";
                     cout<<"\t\t:::::::::::GENERALA SERVIDA:::::::::::\n";
         }else{
         if(Gene[1]==1){
-                    cout<<"\t\t..............RESULTADO..............\n";
-                    cout<<"\t\t:::::::::::::::::::::::::::::::::::::\n";
+                    cout<<"\t\t..............RESULTADO...............\n";
+                    cout<<"\t\t::::::::::::::::::::::::::::::::::::::\n";
                     cout<<"\t\t::::::::::::"<<Nombre1<<":::::::::::::\n";
                     cout<<"\t\t:::::::::JUEGO COMPLETADO POR:::::::::\n";
                     cout<<"\t\t::::::::::::GENERALA DOBLE::::::::::::\n";
