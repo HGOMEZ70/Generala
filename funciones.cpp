@@ -7,7 +7,7 @@
 using namespace std;
 #include "funciones.h"
 
-void Cargar_vector(int v1[], int tam){
+void Cargar_vector(int v1[], int tam){///AL VECTOR SE CARGA 0 EN CASA POSICION
     int i;
     for(i=0; i<tam; i++){
         v1[i]=0;}
@@ -20,7 +20,20 @@ void Mostrar_vector(int v1[], int tam){
         cout<<v1[i]<<"\t";
     }}
 
-void Menu_Resultado(char Nombre1[], char Nombre2[], int t15, int Puntaje[], int t2, int Gene[], int t1){
+void Menu_Resultado(char Nombre1[], char Nombre2[], int t15, int Puntaje[], int t2, int Jugador1[], int Jugador2[], int t0 ){
+    int Gene[4];
+    if(Jugador1[10]>0){///CIERRE SI SALE GENERALA O VUELTAS LLEGA AL LIMITE
+        Gene[0]=1;
+        }else{
+        if(Jugador1[11]>0){
+            Gene[1]=1;
+        }}
+    if(Jugador2[10]>0){
+        Gene[2]=1;
+        }else{
+        if(Jugador2[11]>0){
+            Gene[3]=1;
+        }}
 
     cout<<"Menu_Resultado "<<endl<<endl;
 	cout<<"\n\n\t\tFINALIZACION DEL JUEGO\n"<<endl;
@@ -133,7 +146,7 @@ void Menu_tirar(char Nombre[], int tiro[], int t, int Jugador[], bool Jugado[], 
         }}
         }else{
             cout<<"\n\t\tHAGAMOS TRAMPA \n";
-            cout<<"\tTenga presente que solo debe ingresar numero 0<  dado  <7 ";
+            cout<<"\tTenga presente que solo debe ingresar numero 0<  dado  <7 \n";
             cout<<"\t\t\t\tNo hay opcion de bloqueo\n";
             for(int i=0; i<5; i++){
                 cout<<"\t\tIngrese el numero : ";
@@ -315,7 +328,14 @@ void Menu_Inicio_sol(char nombre1[], int Puntaje[], int t2, int Rondas, int j, i
     system("pause");
 }
 
-void Menu_Resultado_sol(char Nombre1[], int t15, int Puntaje[], int t2, int Gene[], int t1){
+void Menu_Resultado_sol(char Nombre1[], int t15, int Puntaje[], int t2, int Jugador1[], int t0){
+    int Gene[2];
+    if(Jugador1[10]>0){///CIERRE SI SALE GENERALA O VUELTAS LLEGA AL LIMITE
+        Gene[0]=1;
+    }else{
+        if(Jugador1[11]>0){
+            Gene[1]=1;
+            }}
 
     cout<<"Menu_Resultado "<<endl<<endl;
 	cout<<"\n\n\t\tFINALIZACION DEL JUEGO\n"<<endl;

@@ -33,7 +33,7 @@ void Evaluar_combinacion(int [], int, int [], bool [], int, int);
 void Menu_combinaciones(char [], int [], int, int[], bool [], int);
 
 ///Menu resultado Muestra el resultado Final del Juego
-void Menu_Resultado(char [], char [], int, int [], int, int [], int);
+void Menu_Resultado(char [], char [], int, int [], int, int [], int[], int);
 void Menu_Resultado_sol(char [], int, int [], int, int [], int);
 
 #endif // FUNCIONES_H_INCLUDED

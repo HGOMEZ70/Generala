@@ -14,24 +14,22 @@ using namespace std;
 int main(){
     system("color 4A");///El numero cambia el fondo la letra a los caracteres.
     const int t1=4, t15=15, t0=12, t=5, t2=2;
-    int vec1[t1]={}, Jugador1[t0]={}, Jugador2[t0]={}, j, Puntaje[t2]={}, opcion=0;
+    int vec1[t1]={}, Jugador1[t0]={}, Jugador2[t0]={}, j, Puntaje[t2]={}, opcion=1;
     int tiro[t]={}, Rondas=0, Gene[t1]={}, salgo=0, Juegos=0, longchar=0;
-    char Nombre1[t15]={}, Nombre2[t15]={}, fin='N';
+    char Nombre1[t15]={}, Nombre2[t15]={};
     bool tirar=1, Jugado1[t0]={}, Jugado2[t0]={}, sigue=true;
+///ESTE WHILE HACE QUE EL PROGRAMA TERMINE CUANDO LE INDIQUE QUE DESEA SALIR DEL PROGRAMA
     while(Juegos !=3){
-    cout<<"Menu_1_Solitario o Versus..";
+    cout<<"Menu_1_Solitario, Versus o de Salida del Juego..";
     cout<<"\n\n\n\t\tINDIQUE EL MODO EN EL QUE DESEA JUGAR\n";
-	cout<<"\n\t\t1. Modalidad Solitario"<<"\t"<<endl;
+	cout<<"\n\t\t1. Modalidad Solitario"<<"\t"<<endl<<endl;
 	cout<<"\n\t\t2. Modalidad 2 Participantes"<<endl<<endl;
 	cout<<"\n\t\t3. Salir del Juego "<<endl<<endl;
-	cout<<"\n\t\t1- Solitario, 2- Versus "; cin>>Juegos;
+	cout<<"\n\t\t1- Solitario, 2- Versus, 3- Salir "; cin>>Juegos;
 	system("cls");
-
     switch(Juegos){
-    case 3:
-        return 0;
-
     case 2:
+        Nombre1[t15]={}; Nombre2[t15]={};
     while(opcion!=4){ ///-----------PARA CARGAR LOS NOMBRES------------------------------
     cout<<"Menu_Jugador "<<endl<<endl;
 	cout<<"\n\n\t\tBIENVENIDO AL JUEGO GENERALA\n"<<endl;
@@ -54,11 +52,17 @@ int main(){
             cout<<"Deberá ingresar el o los nombres de Jugador/es \n";
             system("pause");
             }
+        default:
+            cout<<"Elija una opcion del menu\n";
+            break;
 		}
         system("cls");
 		}
-    while(sigue==true){
+    salgo=Rondas=0;
+    sigue=true;
+    while(sigue==true){///INICIA EL JUEGO DE DOS PARTICIPANTES
         Rondas++;
+        ///PRIMER TURNO
         j=0;///TURNO DEL JUGADOR1, USADO PARA TOMAR EL INDICE DEL VECTOR PUNTAJE Y SUMAR PUNTOS OBTENIDOS
         ///Muestra los Nombres y el puntaje de ambos
         Menu_Inicio(Nombre1, Nombre2, Puntaje, t2, Rondas, j, Jugador1, Jugador2, t0);
@@ -77,13 +81,16 @@ int main(){
         Sumar_Pun(Jugador2, t0, Puntaje, t2, j);///SUMA EL PUNTAJE AL VECTOR PUNTAJE
         ///Muestra las combinaciones jugadas
         Menu_combinaciones(Nombre2, tiro, t, Jugador2, Jugado2, t0);
-
-    salgo=Jugador1[10]+Jugador1[11]+Jugador2[10]+Jugador2[11];
-    if((salgo>0) || (Rondas==10)){sigue=false;}
+        salgo=Jugador1[10]+Jugador1[11]+Jugador2[10]+Jugador2[11];
+        if((salgo>0) || (Rondas==10)){
+            sigue=false;
+            Menu_Resultado(Nombre1, Nombre2, t15, Puntaje, t2, Jugador1, Jugador2, t0);///RESULTADO VERSUS
+        }
     }
-    break;
-        case 1:
-    while(opcion!=3){ ///PARA JUGAR SOLITARIO
+    break;///DEL CASE 2
+    case 1:
+        Nombre1[t15]={};
+    while(opcion!=3){ ///INICIA EL JUEGO PARA JUGAR SOLITARIO
     cout<<"Menu_Jugador "<<endl<<endl;
 	cout<<"\n\n\t\t\tBIENVENIDO AL JUEGO GENERALA\n"<<endl;
     cout<<"\n\t\t1- Nombre del Jugador:  "<<Nombre1;
@@ -104,6 +111,8 @@ int main(){
     }
     system("cls");
 		}
+    salgo=Rondas=0;
+    sigue=true;
     while(sigue==true){
         Rondas++;
         j=0;///TURNO DEL JUGADOR SOLITARIO, USADO PARA TOMAR EL INDICE DEL VECTOR PUNTAJE Y SUMAR PUNTOS OBTENIDOS
@@ -114,28 +123,21 @@ int main(){
         ///Muestra las combinaciones jugadas
         Menu_combinaciones(Nombre1, tiro, t, Jugador1, Jugado1, t0);
         salgo=Jugador1[10]+Jugador1[11];
-        if(salgo>0 || Rondas == 10){ sigue=false;}
+        if(salgo>0 || Rondas == 10){
+            sigue=false;
+            Menu_Resultado_sol(Nombre1, t15, Puntaje, t2, Jugador1, t0);///RESULTADO SOLITARIO}
     }
-            break;
+    break; ///DEL CASE 1
+    case 3:
+        cout<<"\n\n\n\t\t::::::::::::FIN DEL JUEGO GRACIAS POR UTILIZAR:::::::::::::::::::::::::::\n\n\n\n\n";
+        system("PAUSE");
+    break; ///DEL CASE 3
+    default:
+        cout<<"Debe ingresar una opcion del menu\n";
+        system("PAUSE");
+    break;
     }
-        if(Jugador1[10]>0){///CIERRE SI SALE GENERALA O VUELTAS LLEGA AL LIMITE
-            Gene[0]=1;
-        }else{
-        if(Jugador1[11]>0){
-            Gene[1]=1;
-            }}
-        if(Jugador2[10]>0){
-            Gene[2]=1;
-            }else{
-            if(Jugador2[11]>0){
-                Gene[3]=1;
-                }}
-    if(Juegos==1){
-        Menu_Resultado_sol(Nombre1, t15, Puntaje, t2, Gene, t1);///RESULTADO SOLITARIO
-    }else{
-    Menu_Resultado(Nombre1, Nombre2, t15, Puntaje, t2, Gene, t1);///RESULTADO VERSUS
-    }
-      }///fin while inicial
+      }}///fin while inicial
     system("cls");
     return 0;
 }
