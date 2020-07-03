@@ -58,7 +58,7 @@ int main(){
 		}
         system("cls");
 		}
-    salgo=Rondas=0;
+
     sigue=true;
     while(sigue==true){///INICIA EL JUEGO DE DOS PARTICIPANTES
         Rondas++;
@@ -85,6 +85,8 @@ int main(){
         if((salgo>0) || (Rondas==10)){
             sigue=false;
             Menu_Resultado(Nombre1, Nombre2, t15, Puntaje, t2, Jugador1, Jugador2, t0);///RESULTADO VERSUS
+            system("pause");
+
         }
     }
     break;///DEL CASE 2
@@ -111,7 +113,7 @@ int main(){
     }
     system("cls");
 		}
-    salgo=Rondas=0;
+
     sigue=true;
     while(sigue==true){
         Rondas++;
@@ -122,11 +124,13 @@ int main(){
         Sumar_Pun(Jugador1, t0, Puntaje, t2, j);///SUMA EL PUNTAJE AL VECTOR PUNTAJE
         ///Muestra las combinaciones jugadas
         Menu_combinaciones(Nombre1, tiro, t, Jugador1, Jugado1, t0);
+
         salgo=Jugador1[10]+Jugador1[11];
         if(salgo>0 || Rondas == 10){
             sigue=false;
-            Menu_Resultado_sol(Nombre1, t15, Puntaje, t2, Jugador1, t0);///RESULTADO SOLITARIO}
-    }
+            Menu_Resultado_sol(Nombre1, t15, Puntaje, t2, Jugador1, t0);///RESULTADO SOLITARIO
+            system("pause");
+    }}
     break; ///DEL CASE 1
     case 3:
         cout<<"\n\n\n\t\t::::::::::::FIN DEL JUEGO GRACIAS POR UTILIZAR:::::::::::::::::::::::::::\n\n\n\n\n";
@@ -137,7 +141,7 @@ int main(){
         system("PAUSE");
     break;
     }
-      }}///fin while inicial
+      }///fin while inicial
     system("cls");
     return 0;
 }
